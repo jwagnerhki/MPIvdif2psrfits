@@ -1,3 +1,7 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+
 void dec2hms (char *out, double in, int sflag)
 {
     int sign = 1;

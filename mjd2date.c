@@ -1,3 +1,7 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+
 // Convert from MJD to YEAR-MONTH-DAY-HOUR:MINUTE:SECOND
 void mjd2date (double mjd,
 			   char *date)
