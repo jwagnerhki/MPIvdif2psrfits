@@ -246,6 +246,7 @@ int main(int argc, char *argv[])
       /*-----------------------*/
       // Get frame bytes
       fbytes=getVDIFFrameBytes((const vdif_header *)vfhdr[0])-VDIF_HEADER_BYTES;
+      fbytes=8000;
 
       // Calculate time interval (in unit of microsecond) of a frame
       spf=(double)fbytes/VDIF_BIT*8/(VDIF_BW*2);
@@ -365,7 +366,10 @@ int main(int argc, char *argv[])
 	  do 
 	    {
 	      // Get header
-	      fread(vfhdr[j],1,VDIF_HEADER_BYTES,vdif[j]);
+	      k=fread(vfhdr[j],1,VDIF_HEADER_BYTES,vdif[j]);
+
+	      if(k!=VDIF_HEADER_BYTES)
+		break;
 
 	      // Valid frame
 	      if(!getVDIFFrameInvalid_robust((const vdif_header *)vfhdr[j],VDIF_HEADER_BYTES+fbytes, ifverbose))
@@ -377,6 +381,13 @@ int main(int argc, char *argv[])
 	      else
 		fseek(vdif[j],fbytes,SEEK_CUR);
 	    }while(feof(vdif[j])!=1);
+
+	  if(k!=VDIF_HEADER_BYTES) 
+	    {
+	      printf("Reaching end of file before valid frame is found. Quit.\n");
+	      //MPI_Finalize();
+	      return -1;
+	    }
 	}
 
       // Synchronize starting time
