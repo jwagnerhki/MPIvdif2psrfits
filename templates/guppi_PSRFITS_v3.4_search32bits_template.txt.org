@@ -54,61 +54,6 @@ STT_IMJD=                    * / Start MJD (UTC days) (J - long integer)
 STT_SMJD=                    * / [s] Start time (sec past UTC 00h) (J)
 STT_OFFS=                    * / [s] Start time offset (D)   
 STT_LST =                    * / [s] Start LST (D)
-PV2_1 = 		     * / Parameter value #1 for world coordinate axis
-CTYPE1 = '		     ' / WCS term: type of Axis 1
-CRVAL1 = 		     * / WCS term: Reference pixel value, axis 1
-CDELT = 		     * / WCS term: Increment per pixel, axis 1
-CRPIX = 		     * / WCS term: Reference pixel number, axis 1
-CUNIT = '		     ' / WCS term: Unit of axis 1
-RADESYS = 'ICRS'	       / Teference system for equatorial coordinates
-RESTFRQ = 		     * / Rest Frequency (Hz)
-SPECSYS = '		     ' / Spectral reference frame
-ZSOURCE = 		     * / Redshift of Source
-OFFPOS = 		     * / Coordinate values of off position for TP obs
-TIMESYS = 'UTC'		       / Time system for time-related keywords and data
-DATE-END = '		     ' / Date and time of last observations comprising data in array
-BSCALE = 		     * / PHYSICAL = PIXEL*BSCALE + BZERO
-BZERO = 		     * / PHYSICAL = PIXEL*BSCALE + BZERO
-BTYPE = '		     ' / Brightness (pixel) unit (may be depreciated)
-BUNIT = '		     ' / Physical units in which the quantities in array
-DATAMAX = 		     * / Maximum valid physical value represented by the array
-DATAMIN = 		     * / Minimum valid physical value represented by the array
-MRS =  			     * / Max recoverable angular scale
-CHANRMS = 		     * / RMS per channel of FITS in Jy/Beam
-FOV = 			     * / Total field of view of the image
-SPW =	     		     * / Spectral window identification number, derived from ASDM
-SPW01 = 		     * / Identification string of spectral window from ASDM
-BNDWID = 		     * / Effective bandwidth of data in the FITS array
-BNDRES = 	       	     * / Effective frequency resolution of data in the FITS array
-OBSGEO-X = 		     * / X-coordinate of observation position wrt Geocentric reference
-OBSGEO-Y = 		     * / Y-coordinate of observation position wrt Geocentric reference
-OBSGEO-Z = 	     	     * / Z-coordinate of observation position wrt Geocentric reference
-LONPOLE = 		     * / Long. in native coordinate system of celestial system’s north pole
-LATPOLE = 		     * / Lat in native coordinate system of celestial system’s north pole
-EPHEMERI = ''		       / Ephemeris details, if any
-INSTRUME = ''	    	       / ALMA name for observations Band
-NANTTP =  		     * / Number of ALMA ACA total power antennas used in data (0 for no data)
-NANT12M = 		     * / Number of ALMA 12 m main-array antennas used in data
-NANT7M = 		     * / Number of ALMA ACA 7 m ACA antennas used in data (0 for no data)
-PADLIST = ''   		       / List of ALMA pad names contributing to data
-EXPTIMTP = 	       	     * / On-source obs time of ALMA ACA total power antennas (0 for no data)
-EXPTIM12 =		     * / On-source obs time of ALMA 12 m main array antennas
-EXPTIM7 = 		     * / On-source obs time of ALMA ACA 7 m antennas (0 for no data)
-PROPCODE = ''    	       / ALMA proposal ID
-TITLE = '' 		       / ALMA proposal title
-OBJECT = ''     	       / PI name for the object observed
-PIPVER = ''		       / Pipeline version used to produce FITS data
-CASAVER = '' 		       / CASA 3.4.0 (release r19988)
-MEMBER = '' 		       / Member observing unit set status ID
-SGOAL = ''		       / Science Goal Observing unit set ID
-SGOALNME = ''		       / Science Goal Observing unit set name
-SBNAMES = ''		       / Names of scheduling blocks contributing to data in array
-SBUIDS = ''		       / IDs of scheduling blocks contributing to data in array
-PUBACKN = 'ALMA'	       / Publication acknowledgement
-ORIGIN = 'MPIfR'	       / Organisation responsible for producing dataset
-COMBLEVL = ''		       / Level at which data is combined in this FITS
-GROUP = ''		       / Group observing unit set status ID
-HISTORY Thu Oct 11 02:45:18 2012 Dummy history data
 END
 #
 ###############################################################################

@@ -344,6 +344,14 @@ int main(int argc, char *argv[])
 
       // Initialize patching param.
       for(j=0;j<nchan;j++)
+	for(p=0;p<4;p++)
+	  {
+	    mean_det[j][p]=1.5;
+	    rms_det[j][p]=0.5;
+	  }
+
+      // Getting mean & rms from data
+      for(j=0;j<nchan;j++)
         for(p=0;p<4;p++)
           {
 	    mean_det[j][p]=acc_det[j][p]/(double)fct;
@@ -372,14 +380,14 @@ int main(int argc, char *argv[])
 		break;
 
 	      // Valid frame
-	      if(!getVDIFFrameInvalid_robust((const vdif_header *)vfhdr[j],VDIF_HEADER_BYTES+fbytes, ifverbose))
+	      if(!getVDIFFrameInvalid_robust((const vdif_header *)vfhdr[j], VDIF_HEADER_BYTES+fbytes, ifverbose))
 		{
 		  mjd[j]=getVDIFFrameDMJD((const vdif_header *)vfhdr[j], fps);
 		  break;
 		}
 	      // Invalid frame
 	      else
-		fseek(vdif[j],fbytes,SEEK_CUR);
+		fseek(vdif[j],1,SEEK_CUR);
 	    }while(feof(vdif[j])!=1);
 
 	  if(k!=VDIF_HEADER_BYTES) 

@@ -244,8 +244,8 @@ void getVDIFFrameFakeDetection_1chan(double *mean, double *rms, int Nchan, float
     {
       // Generate time series with given mean & rms
       for(i=0;i<Nts;i++)
-	//in[j][i]=mean[j]+gasdev(seed)*rms[j]-mean2bspl;
-	in[j][i]=mean[j]-mean2bspl;
+	in[j][i]=mean[j]+gasdev(&seed)*rms[j]-mean2bspl;
+	//in[j][i]=mean[j]-mean2bspl;
     }
 
   // Perform FFT
@@ -337,8 +337,10 @@ int getVDIFFrameInvalid_robust(const vdif_header *header, int framebytes, bool i
   sec=getVDIFFrameSecond(header);
   num=getVDIFFrameNumber(header);
   inval=getVDIFFrameInvalid(header);
- 
-  if(f != framebytes || inval || mjd < 50000 || mjd > 60000 || sec < 0 || num < 0 || num > 125000)
+
+  //fprintf(stderr,"Invalid frame check: bytes %i mjd %i sec %i num %i inval %i\n",f,mjd,sec,num,inval); 
+
+  if(f != framebytes || inval || mjd < 50000 || mjd > 90000 || sec < 0 || num < 0 || num > 125000)
     {
       if (ifverbose)
 	fprintf(stderr,"Invalid frame: bytes %i mjd %i sec %i num %i inval %i\n",f,mjd,sec,num,inval);
